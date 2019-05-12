@@ -8,9 +8,7 @@ import tw.core.model.GuessResult;
 import java.util.ArrayList;
 import java.util.List;
 
-import static tw.core.GameStatus.CONTINUE;
-import static tw.core.GameStatus.FAIL;
-import static tw.core.GameStatus.SUCCESS;
+import static tw.core.GameStatus.*;
 
 /**
  * Created by jxzhong on 2017/5/16.
@@ -26,6 +24,10 @@ public class Game {
     public Game(AnswerGenerator answerGenerator) throws OutOfRangeAnswerException {
         this.actualAnswer = answerGenerator.generate();
         this.guessResults = new ArrayList();
+    }
+
+    public Answer getActualAnswer(){
+        return this.actualAnswer;
     }
 
     public GuessResult guess(Answer inputAnswer) {
